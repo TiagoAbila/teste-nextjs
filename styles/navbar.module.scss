@@ -41,7 +41,6 @@
     transition: 0.3s;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.9);
 
     .sidebar-grid {
@@ -49,6 +48,7 @@
 
         .grid-cell {
             padding: 10px 0px;
+            color: #FFF;
 
             &:hover {
                 background-color: rgba(82, 82, 82, 0.45);
