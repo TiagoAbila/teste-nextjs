@@ -1,0 +1,34 @@
+.page-padding {
+    padding: 0px 196px;
+}
+
+@mixin text-style {
+    font-family: 'DM Sans';
+    letter-spacing: 0.01em;
+}
+
+.footer-grid {
+    div>h4 {
+        @include text-style;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 46px;
+        color: #FFFFFF;
+    }
+
+    div>a {
+        @include text-style;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 36px;
+        color: rgba(255, 255, 255, 0.45);
+    }
+
+    padding-bottom:100px
+}
+
+@media (max-width: 767px) {
+    .page-padding {
+        padding: 0px 10px;
+    }
+}

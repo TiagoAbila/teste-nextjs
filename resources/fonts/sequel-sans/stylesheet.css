@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'sequel_sansbold_body';
+    src: url('sequel_sans_bold_body-webfont.woff2') format('woff2'),
+         url('sequel_sans_bold_body-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

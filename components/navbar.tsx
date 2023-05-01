@@ -1,56 +1,52 @@
 import React, { useState } from 'react';
+import styles from '../styles/navbar.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <nav className="flex items-center justify-between flex-wrap p-6">
-            <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
-                <img src={'https://www.locofy.ai/blog/locofylogo.svg'} className="w-100 h-10 mr-2" alt="Logo" />
-            </div>
-            <div className="block lg:hidden">
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
-                >
-                    <svg
-                        className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                    </svg>
-                    <svg
-                        className={`fill-current h-3 w-3 ${isOpen ? "block" : "hidden"}`}
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-                    </svg>
-                </button>
-            </div>
-            <div
-                className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
-            >
-                <div className="text-sm lg:flex-grow">
-                    <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-                        First Link
-                    </a>
-                    <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-                        Second Link
-                    </a>
-                    <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-                        Third Link
-                    </a>
-                    <a href="#" className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4">
-                        Fourth Link
-                    </a>
+        <main className={`${styles['mobile-padding']} md:${styles['navbar-padding']}`}>
+            <nav className={`flex items-center justify-between ${styles['navbar-font']} ${styles['navbar-height']}`}>
+                <div className={styles['font-size-big']}>
+                    <span>CRONOS</span>
                 </div>
-                <div>
-                    <button className="inline-flex items-center bg-amber-500 border-0 py-2 px-4 text-white">
-                        Click Me
+                <div className={`${styles['font-size-small']} ${styles['navbar-spacing']} hidden md:block`}>
+                    <a href='#'>Learn</a>
+                    <a href='#' className='justify-self-center'>Build</a>
+                    <a href='#'>Explore</a>
+                </div>
+                <div className={`${styles['font-size-big']} hidden md:block`}>
+                    <a href='#'>{'Get CRONOS >'}</a>
+                </div>
+                <div className="block block md:hidden">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className={`${isOpen ? "hidden" : "block"}`}
+                    >
+                        <FontAwesomeIcon icon={faBars} />
+                    </button>
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className={`${isOpen ? "block" : "hidden"}`}
+                    >
+                        <FontAwesomeIcon icon={faXmark} />
                     </button>
                 </div>
+            </nav>
+            <div className={`flex items-center ${isOpen ? styles['sidebar-open'] : styles['sidebar-closed']}`}>
+                <div className={`grid grid-col-1 w-full ${styles['sidebar-grid']}`}>
+                    <div className={styles['grid-cell']}><span>Learn</span></div>
+                    <hr />
+                    <div className={styles['grid-cell']}><span>Build</span></div>
+                    <hr />
+                    <div className={styles['grid-cell']}><span>Explore</span></div>
+                    <hr />
+                    <div className={styles['grid-cell']}><span>Get CRONOS</span></div>
+                </div>
             </div>
-        </nav>
+
+        </main>
     )
 }
